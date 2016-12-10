@@ -1,0 +1,22 @@
+graph BT
+    A["<b>Заказ</b><br><hr>время<br>e-mail<br>завершен<br>стоимость<br>время выполнения<br>дедлайн"] --- B["<b>Договор</b><br><hr>текст<br>сторона"]
+    A --- C["<b>Проверяющий</b><br><hr>имя<br>e-mail"]
+    A --- D["<b>Тип проверки</b><br><hr>название типа"]
+    B --- E["<b>Виды договоров</b><br><hr>название вида<br>стороны"]
+    B --- F["<b>Список файлов</b><br><hr>адрес"]
+    F --- G["<b>Форматы данных</b><br><hr>название<br>необходимо распознавание<br>необходимо форматирование"]
+    
+    
+graph BT
+    A["заказ"] --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1"|B{"проверяет"}
+    B --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N"|C["проверяющий"]
+    A --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1"|D{"тип проверки"}
+    D --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N"|E["типы проверки"]
+    A --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1"|F{"содержит договор"}
+    F --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1"|G["договор"]
+    G --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1"|H{"находится в"}
+    H --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1"|I["список загруженных файлов"]
+    G --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1"|J{"является договором вида"}
+    J --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N"|K["виды договоров"]
+    I --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1"|L{"в формате"}
+    L --- |"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N"|M["форматы данных"]
